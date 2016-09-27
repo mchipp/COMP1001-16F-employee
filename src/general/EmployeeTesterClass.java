@@ -1,6 +1,5 @@
-package hr;
-
-
+package general;
+import hr.*;
 
 /**
  *
