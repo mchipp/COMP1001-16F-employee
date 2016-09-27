@@ -6,7 +6,7 @@ import java.util.*;
  * 
  * @author Mark Chipp <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
-public class Employee 
+public abstract class Employee
 {
     private String firstName, lastName, gender, address, phoneNumber, position,
             status;
