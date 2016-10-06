@@ -4,11 +4,11 @@ package hr;
  *
  * @author Mark Chipp <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
-public class CommissionSalesEmployee extends Employee
+public class CommissionEmployee extends Employee
 {
     private double commissionRate, grossSales, commissionTotal;
     
-    public CommissionSalesEmployee(String firstName, String lastName, String gender,
+    public CommissionEmployee(String firstName, String lastName, String gender,
                     String address, String phoneNumber, int year, int month,
                     int day, String position, String status, int empId,
                     double payRate, double commissionRate)
