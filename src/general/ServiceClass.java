@@ -2,8 +2,8 @@ package general;
 import hr.*;
 
 /**
- *
- * @author ch1ffr3
+ * 
+ * @author Mark Chipp <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
 public class ServiceClass 
 {
