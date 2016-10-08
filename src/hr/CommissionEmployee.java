@@ -6,32 +6,33 @@ package hr;
  */
 public class CommissionEmployee extends Employee
 {
-    private double commissionRate, grossSales, commissionTotal;
+    private double commissionRate, grossSales;
     
     public CommissionEmployee(String firstName, String lastName, String gender,
-                    String address, String phoneNumber, int year, int month,
-                    int day, String position, String status, int empId,
-                    double payRate, double commissionRate)
+                    String address, String phoneNumber, int sin, int year, int month,
+                    int day, double grossSales, double commissionRate)
     {
-        super(firstName, lastName, gender, address, phoneNumber, year, month, day,
-                position, status, empId, payRate);
+        super(firstName, lastName, gender, address, phoneNumber, sin, year, month, day);
+        
+        // initialize data for commisison employee class
+        this.grossSales = grossSales;
         this.commissionRate = commissionRate;
-        setGrossSales();
     }
     
-    public void setGrossSales()
-    {
-        this.grossSales = 5000.00;
-    }
-    
+    //Accessors (get methods)
     public double getCommissionRate()
     {
         return this.commissionRate;
-    }
-    
+    }    
     public double getGrossSales()
     {
         return this.grossSales;
+    }
+    
+    //Mutators (set mehods)    
+    public void setGrossSales(double grossSales)
+    {
+        this.grossSales = grossSales;
     }
     
     /**
@@ -49,7 +50,6 @@ public class CommissionEmployee extends Employee
     {
         return super.toString() + 
                 "\nCommission Rate:\t" + getCommissionRate() +
-                "\nGross Sales:\t" + getGrossSales() +
-                "\nCommission Earned:\t" + getCommissionEarned();
+                "\nGross Sales:\t" + getGrossSales();
     }
 }
