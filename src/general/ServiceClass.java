@@ -13,12 +13,13 @@ public class ServiceClass
     public static void getInitialMessage()
     {
         System.out.println("Welcome to ACME!!\n"
-        + " Please enter an option:\n"
+        + "Please enter an option:\n"
         + "1. Create new hourly employee.\n"
         + "2. Create new salaried employee.\n"
         + "3. Create new commission employee.\n"
-        + "4. Search for a product.\n"
-        + "5. Exit.\n");
+        + "4. Search for an employee.\n"
+        + "5. Search for a product.\n"
+        + "6. Exit.\n");
     }
     
     // sets incremental empId

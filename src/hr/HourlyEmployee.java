@@ -18,7 +18,7 @@ public class HourlyEmployee extends Employee
     {
         super(firstName, lastName, gender, address, phoneNumber, year,
                 month, day, position, status, payRate);
-        this.hoursWorked = hoursWorked;
+        this.hoursWorked = 35;
         super.setEarnings(this.getEarnings());
     }
     
@@ -44,7 +44,8 @@ public class HourlyEmployee extends Employee
     @Override
     public String toString()
     {
-        return super.toString() +
-                "\nHourly Rate:\t" + super.getPayRate();
+        return super.toString()
+                + "\nHourly Rate:\t" + super.getPayRate()
+                + "\nTotal Earnings:\t" + getEarnings();
     }
 }

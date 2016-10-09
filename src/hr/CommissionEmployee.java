@@ -14,14 +14,15 @@ public class CommissionEmployee extends Employee
     public CommissionEmployee(String firstName, String lastName, String gender,
                     String address, String phoneNumber, int year,
                     int month, int day, String position, String status,
-                    double payRate)
+                    double commissionRate)
     {
         super(firstName, lastName, gender, address, phoneNumber, year,
-                month, day, position, status, payRate);
+                month, day, position, status, commissionRate);
         
         // initialize data for commisison employee class
-        this.grossSales = grossSales;
         this.commissionRate = commissionRate;
+        this.grossSales = 5000.00;
+        super.setEarnings(getCommissionEarned());
     }
     
     //Accessors (get methods)
@@ -34,10 +35,14 @@ public class CommissionEmployee extends Employee
         return this.grossSales;
     }
     
-    //Mutators (set mehods)    
-    public void setGrossSales(double grossSales)
+    //Mutators (set mehods) 
+    public void setCommissionRate(double comRate)
     {
-        this.grossSales = grossSales;
+        this.commissionRate = comRate;
+    }   
+    public void setGrossSales(double gSales)
+    {
+        this.grossSales = gSales;
     }
     
     /**
@@ -54,7 +59,8 @@ public class CommissionEmployee extends Employee
     public String toString()
     {
         return super.toString() + 
-                "\nCommission Rate:\t" + getCommissionRate() +
-                "\nGross Sales:\t" + getGrossSales();
+                "\nCommission Rate:\t" + (getCommissionRate() * 100) + "%"
+                + "\nGross Sales:\t" + getGrossSales()
+                + "\nCommission Earned:\t" + super.getEarnings();
     }
 }
