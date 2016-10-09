@@ -12,11 +12,12 @@ public class ServiceClass
     // menu interface
     public static void getInitialMessage()
     {
-        System.out.println("Welcome to Georgian!\n"
+        System.out.println("Welcome to ACME!!\n"
         + " Please enter an option:\n"
-        + "1. Create new Part time student.\n"
-        + "2. Create new Full time student.\n"
-        + "3. Exit.\n");
+        + "1. Create new hourly employee.\n"
+        + "2. Create new salaried employee.\n"
+        + "3. Create new commission employee.\n"
+        + "4. Exit.\n");
     }
     
     // sets incremental empId
@@ -29,6 +30,18 @@ public class ServiceClass
     public static boolean stringCheck(String testString)
     {
         return testString.trim().isEmpty();
+    }
+    
+    // check that input is only integer numerals
+    public static boolean intCheck(String testString)
+    {
+        return testString.matches("[0-9]+");
+    }
+    
+    // check that input is only double numerals
+    public static boolean doubleCheck(String testString)
+    {
+        return testString.matches("([0-9]*)\\.([0-9]*)");
     }
     
     // prompt user for input

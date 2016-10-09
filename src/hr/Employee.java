@@ -1,6 +1,6 @@
 package hr;
 
-import general.ServiceClass;
+import general.*;
 import java.util.*;
 
 /**
@@ -14,7 +14,7 @@ public abstract class Employee
     //private data members
     private String firstName, lastName, gender, address, phoneNumber, position,
             status;
-    private int empId, sin;
+    private int empId;
     //variables holding dates for dateOfBirth
     private GregorianCalendar dateOfBirth;
     private Date dateOfHire;
@@ -28,8 +28,8 @@ public abstract class Employee
     
     //overloaded constructor
     public Employee(String firstName, String lastName, String gender,
-                    String address, String phoneNumber, int sin, int year, int month,
-                    int day)
+                    String address, String phoneNumber, int year, int month,
+                    int day, String position, String status, double payRate)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -42,17 +42,10 @@ public abstract class Employee
         this.dateOfBirth.set(Calendar.MONTH, month-1);
         this.dateOfBirth.set(Calendar.DATE, day);
         this.empId = ServiceClass.setEmployeeId();
-        employeeCount++;
-    }
-    
-    public Employee(String firstName, String lastName, String gender,
-                    String address, String phoneNumber, int sin, int year, int month,
-                    int day, String position, String status, double payRate, double earnings)
-    {
-        this(firstName, lastName, gender, address, phoneNumber, sin, year, month, day);
         this.position = position;
         this.status = status;
         this.payRate = payRate;
+        employeeCount++;
     }
     
     //Accessors (get methods)
@@ -155,9 +148,9 @@ public abstract class Employee
     {
         this.payRate = payRate;
     }
-    public void setSin(int sin)
+    public void setEarnings(double earned)
     {
-        this.sin = sin;
+        this.earnings = earned;
     }
     
     /**

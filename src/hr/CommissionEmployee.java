@@ -1,5 +1,8 @@
 package hr;
 
+import general.*;
+import java.util.*;
+
 /**
  *
  * @author Mark Chipp <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
@@ -9,10 +12,12 @@ public class CommissionEmployee extends Employee
     private double commissionRate, grossSales;
     
     public CommissionEmployee(String firstName, String lastName, String gender,
-                    String address, String phoneNumber, int sin, int year, int month,
-                    int day, double grossSales, double commissionRate)
+                    String address, String phoneNumber, int year,
+                    int month, int day, String position, String status,
+                    double payRate)
     {
-        super(firstName, lastName, gender, address, phoneNumber, sin, year, month, day);
+        super(firstName, lastName, gender, address, phoneNumber, year,
+                month, day, position, status, payRate);
         
         // initialize data for commisison employee class
         this.grossSales = grossSales;
@@ -23,7 +28,7 @@ public class CommissionEmployee extends Employee
     public double getCommissionRate()
     {
         return this.commissionRate;
-    }    
+    }
     public double getGrossSales()
     {
         return this.grossSales;
