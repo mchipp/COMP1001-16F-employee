@@ -1,7 +1,6 @@
 package general;
 import hr.*;
 import java.util.*;
-import sun.security.util.Debug;
 
 /**
  *
@@ -15,7 +14,7 @@ public class Main
         ArrayList<Employee> myEmployeeList = new ArrayList();
         Scanner read = new Scanner(System.in);
         boolean keepGoing = true;
-        String input = "5";
+        String input = "6";
         
         ServiceClass.getInitialMessage();
         
@@ -227,12 +226,6 @@ public class Main
                 myEmployeeList.add(employee);
                 
                 
-                /*//debugging
-                for(Employee e : myEmployeeList)
-                {
-                    System.out.println(e.toString());
-                }*/
-                
                 System.out.println("\n" + employee.getFullName() + " has been added!\n");
                 ServiceClass.getInitialMessage();
             }
@@ -421,12 +414,6 @@ public class Main
                 month, day, position, status, salary);
                 
                 myEmployeeList.add(employee);                
-                
-                /*//debugging
-                for(Employee e : myEmployeeList)
-                {
-                    System.out.println(e.toString());
-                }*/
                 
                 System.out.println("\n" + employee.getFullName() + " has been added!\n");
                 ServiceClass.getInitialMessage();
