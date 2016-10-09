@@ -95,7 +95,7 @@ public abstract class Employee
     }    
     public double getEarnings()
     {
-        return getPayRate();
+        return this.earnings;
     }
     public Date getHireDate()
     {

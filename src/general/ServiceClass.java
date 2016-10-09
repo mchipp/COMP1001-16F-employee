@@ -17,7 +17,8 @@ public class ServiceClass
         + "1. Create new hourly employee.\n"
         + "2. Create new salaried employee.\n"
         + "3. Create new commission employee.\n"
-        + "4. Exit.\n");
+        + "4. Search for a product.\n"
+        + "5. Exit.\n");
     }
     
     // sets incremental empId
