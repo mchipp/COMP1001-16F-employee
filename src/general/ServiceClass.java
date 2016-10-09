@@ -57,4 +57,29 @@ public class ServiceClass
     {
         System.out.println("Invalid input! Please try again.");
     }
+    
+    // check maximum days for given month
+    public static int checkMaxDays(int month)
+    {
+        int[] monthsWith31Days = {1,3,5,7,8,10,12};
+        int maxDays = 0;
+                    
+        for(int d : monthsWith31Days)
+        {
+            if(month == d)
+            {
+                maxDays = 31;
+            }
+            else if(month != 2)
+            {
+                maxDays = 30;
+            }
+            else if(month == 2)
+            {
+                maxDays = 29;
+            }
+        }
+        
+        return maxDays;
+    }
 }

@@ -94,8 +94,15 @@ public class Main
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        year = Integer.parseInt(inputValue);
-                        innerKeepGoing = false;
+                        if(inputValue.length() == 4)
+                        {
+                            year = Integer.parseInt(inputValue);
+                            innerKeepGoing = false;
+                        }
+                        else
+                        {
+                            System.out.println("Please enter year as four digits.");
+                        }
                     }
                     else
                     {
@@ -107,12 +114,26 @@ public class Main
                 
                 do
                 {
-                    ServiceClass.inputPrompt("month of birth");
+                    ServiceClass.inputPrompt("month of birth [01-12]");
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        month = Integer.parseInt(inputValue);
-                        innerKeepGoing = false;
+                        if(inputValue.length() <= 2)
+                        {
+                            if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
+                            {
+                                month = Integer.parseInt(inputValue);
+                                innerKeepGoing = false;
+                            }
+                            else
+                            {
+                                System.out.println("Month must be a number from 1-12.");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("Month cannot exceed two digits.");
+                        }
                     }
                     else
                     {
@@ -126,12 +147,19 @@ public class Main
                 {
                     ServiceClass.inputPrompt("day of birth");
                     String inputValue = read.nextLine();
+                    
+                    int maxDay = ServiceClass.checkMaxDays(month);
+                    
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        if(inputValue.length() == 2)
+                        if(!(Integer.parseInt(inputValue) > maxDay))
                         {
                             day = Integer.parseInt(inputValue);
-                            innerKeepGoing = false;
+                            innerKeepGoing = false;                            
+                        }
+                        else
+                        {
+                            System.out.println("The day can not exceed " + maxDay);
                         }
                     }
                     else
@@ -279,8 +307,15 @@ public class Main
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        year = Integer.parseInt(inputValue);
-                        innerKeepGoing = false;
+                        if(inputValue.length() == 4)
+                        {
+                            year = Integer.parseInt(inputValue);
+                            innerKeepGoing = false;
+                        }
+                        else
+                        {
+                            System.out.println("Please enter year as four digits.");
+                        }
                     }
                     else
                     {
@@ -292,12 +327,26 @@ public class Main
                 
                 do
                 {
-                    ServiceClass.inputPrompt("month of birth");
+                    ServiceClass.inputPrompt("month of birth [01-12]");
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        month = Integer.parseInt(inputValue);
-                        innerKeepGoing = false;
+                        if(inputValue.length() <= 2)
+                        {
+                            if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
+                            {
+                                month = Integer.parseInt(inputValue);
+                                innerKeepGoing = false;
+                            }
+                            else
+                            {
+                                System.out.println("Month must be a number from 1-12.");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("Month cannot exceed two digits.");
+                        }
                     }
                     else
                     {
@@ -311,12 +360,18 @@ public class Main
                 {
                     ServiceClass.inputPrompt("day of birth");
                     String inputValue = read.nextLine();
+                    int maxDay = ServiceClass.checkMaxDays(month);
+                    
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        if(inputValue.length() == 2)
+                        if(!(Integer.parseInt(inputValue) > maxDay))
                         {
                             day = Integer.parseInt(inputValue);
-                            innerKeepGoing = false;
+                            innerKeepGoing = false;                            
+                        }
+                        else
+                        {
+                            System.out.println("The day can not exceed " + maxDay);
                         }
                     }
                     else
@@ -448,8 +503,15 @@ public class Main
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        year = Integer.parseInt(inputValue);
-                        innerKeepGoing = false;
+                        if(inputValue.length() == 4)
+                        {
+                            year = Integer.parseInt(inputValue);
+                            innerKeepGoing = false;
+                        }
+                        else
+                        {
+                            System.out.println("Please enter year as four digits.");
+                        }
                     }
                     else
                     {
@@ -461,12 +523,26 @@ public class Main
                 
                 do
                 {
-                    ServiceClass.inputPrompt("month of birth");
+                    ServiceClass.inputPrompt("month of birth [01-12]");
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        month = Integer.parseInt(inputValue);
-                        innerKeepGoing = false;
+                        if(inputValue.length() <= 2)
+                        {
+                            if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
+                            {
+                                month = Integer.parseInt(inputValue);
+                                innerKeepGoing = false;
+                            }
+                            else
+                            {
+                                System.out.println("Month must be a number from 1-12.");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("Month cannot exceed two digits.");
+                        }
                     }
                     else
                     {
@@ -476,17 +552,22 @@ public class Main
                 
                 innerKeepGoing = true;
                 
-                //For this program, employees can be given individual commission rates as per position, experience etc.
                 do
                 {
                     ServiceClass.inputPrompt("day of birth");
                     String inputValue = read.nextLine();
+                    int maxDay = ServiceClass.checkMaxDays(month);
+                    
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        if(inputValue.length() == 2)
+                        if(!(Integer.parseInt(inputValue) > maxDay))
                         {
                             day = Integer.parseInt(inputValue);
-                            innerKeepGoing = false;
+                            innerKeepGoing = false;                            
+                        }
+                        else
+                        {
+                            System.out.println("The day can not exceed " + maxDay);
                         }
                     }
                     else
@@ -517,6 +598,7 @@ public class Main
                 
                 innerKeepGoing = true;
                 
+                //Employees can receive individual commission rates (useful for senority, experience, position)
                 do
                 {
                     ServiceClass.inputPrompt("commission rate");
