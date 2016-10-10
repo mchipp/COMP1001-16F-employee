@@ -227,6 +227,8 @@ public class Main
                 
                 
                 System.out.println("\n" + employee.getFullName() + " has been added!\n");
+                System.out.println("Press enter to continue");
+                read.nextLine();             
                 ServiceClass.getInitialMessage();
             }
             //add salary employee
@@ -416,6 +418,8 @@ public class Main
                 myEmployeeList.add(employee);                
                 
                 System.out.println("\n" + employee.getFullName() + " has been added!\n");
+                System.out.println("Press enter to continue");
+                read.nextLine();             
                 ServiceClass.getInitialMessage();
             }
             //add commission employee
@@ -608,15 +612,37 @@ public class Main
                 myEmployeeList.add(employee); 
                 
                 System.out.println("\n" + employee.getFullName() + " has been added!\n");
+                System.out.println("Press enter to continue");
+                read.nextLine();             
                 ServiceClass.getInitialMessage();
             }
             else if("4".equals(input))
             {
                 //search for employee
+                String searchTerms;
+                ServiceClass.inputPrompt("first and last name, or employee ID of the employee you wish to search for:");
+                
+                searchTerms = read.nextLine();
+                
                 for(Employee e : myEmployeeList)
                 {
-                    System.out.println(e.toString());
-                }          
+                    if(ServiceClass.intCheck(searchTerms))
+                    {
+                        if(e.getEmpId() == Integer.parseInt(searchTerms))
+                        {
+                            System.out.println(e.toString());
+                            System.out.println("Press enter to continue");
+                            read.nextLine();                  
+                        }
+                    }
+                    else if(e.getFullName().equalsIgnoreCase(searchTerms))
+                    {
+                            System.out.println(e.toString());
+                            System.out.println("Press enter to continue");
+                            read.nextLine();
+                    }
+                }
+                ServiceClass.getInitialMessage();       
             }
             else if("5".equals(input))
             {
