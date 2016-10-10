@@ -17,7 +17,7 @@ public class CommissionEmployee extends Employee
                 month, day, position, status, commissionRate);
         
         // initialize data for commisison employee class
-        this.commissionRate = commissionRate;
+        this.commissionRate = 0.05;
         this.grossSales = 5000.00;
         super.setEarnings(getCommissionEarned());
     }

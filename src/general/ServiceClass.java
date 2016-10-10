@@ -1,5 +1,7 @@
 package general;
 
+import java.util.*;
+
 /**
  * 
  * @author Mark Chipp <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
@@ -80,5 +82,14 @@ public class ServiceClass
         }
         
         return maxDays;
+    }
+    
+    // no search results
+    public static void noSearchResults()
+    {   
+       Scanner read = new Scanner(System.in);
+        System.out.println("Your search did not return any results\nPress enter to continue");
+        System.out.println("Press enter to continue");
+        read.nextLine(); 
     }
 }

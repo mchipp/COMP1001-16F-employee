@@ -326,26 +326,19 @@ public class Main
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
                     {
-                        if(inputValue.length() <= 2)
+                        if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
                         {
-                            if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
-                            {
-                                month = Integer.parseInt(inputValue);
-                                innerKeepGoing = false;
-                            }
-                            else
-                            {
-                                System.out.println("Month must be a number from 1-12.");
-                            }
+                            month = Integer.parseInt(inputValue);
+                            innerKeepGoing = false;
                         }
                         else
                         {
-                            System.out.println("Month cannot exceed two digits.");
+                            System.out.println("Month must be a number from 1-12.");
                         }
                     }
                     else
                     {
-                        System.out.println("Please use only numbers");
+                        System.out.println("Month must be a number from 1-12.");
                     }
                 }while(innerKeepGoing);
                 
@@ -589,10 +582,11 @@ public class Main
                 
                 innerKeepGoing = true;
                 
+                /*                
                 //Employees can receive individual commission rates (useful for senority, experience, position)
                 do
                 {
-                    ServiceClass.inputPrompt("commission rate");
+                    ServiceClass.inputPrompt("commission rate (example 0.1 = 10%)");
                     String inputValue = read.nextLine();
                     if(ServiceClass.doubleCheck(inputValue))
                     {
@@ -603,8 +597,10 @@ public class Main
                     {
                         System.out.println("Please use only a number with two decimal places");
                     }
-                }while(innerKeepGoing);               
+                }while(innerKeepGoing);*/             
                 
+                // comment this line out and uncomment above block for custom rates per employee
+                commissionRate = 0.05;
                 
                 CommissionEmployee employee = new CommissionEmployee(firstName, lastName, gender, address, phoneNumber, year,
                 month, day, position, status, commissionRate);
@@ -620,7 +616,7 @@ public class Main
             {
                 //search for employee
                 String searchTerms;
-                ServiceClass.inputPrompt("first and last name, or employee ID of the employee you wish to search for:");
+                ServiceClass.inputPrompt("first AND last name, or employee ID of the employee you wish to search for:");
                 
                 searchTerms = read.nextLine();
                 
@@ -634,12 +630,20 @@ public class Main
                             System.out.println("Press enter to continue");
                             read.nextLine();                  
                         }
+                        else
+                        {
+                            ServiceClass.noSearchResults();
+                        }
                     }
                     else if(e.getFullName().equalsIgnoreCase(searchTerms))
                     {
                             System.out.println(e.toString());
                             System.out.println("Press enter to continue");
                             read.nextLine();
+                    }
+                    else
+                    {
+                        ServiceClass.noSearchResults();                 
                     }
                 }
                 ServiceClass.getInitialMessage();       
