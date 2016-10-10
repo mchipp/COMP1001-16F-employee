@@ -642,68 +642,85 @@ public class Main
                 
                 searchTerms = read.nextLine();
                 
-                for(Employee e : myEmployeeList)
+                ArrayList<Employee> searchMatches = new ArrayList();
+                
+                if(!myEmployeeList.isEmpty())
                 {
-                    if(ServiceClass.intCheck(searchTerms))
+                    for(Employee e : myEmployeeList)
                     {
-                        if(e.getEmpId() == Integer.parseInt(searchTerms))
+                        // if search isn't an int and the String matched product name
+                        if(!ServiceClass.intCheck(searchTerms) && e.getFullName().equalsIgnoreCase(searchTerms))
                         {
-                            System.out.println(e.toString());
-                            System.out.println("Press enter to continue");
-                            read.nextLine();                  
+                            searchMatches.add(e);
                         }
-                        else
+                        // if the search is an int and the String parsed as int matches the itemId
+                        else if(ServiceClass.intCheck(searchTerms) && e.getEmpId() == Integer.parseInt(searchTerms))
                         {
-                            ServiceClass.noSearchResults();
+                            searchMatches.add(e);
                         }
                     }
-                    else if(e.getFullName().equalsIgnoreCase(searchTerms))
+                    if(searchMatches.isEmpty())
                     {
-                            System.out.println(e.toString());
-                            System.out.println("Press enter to continue");
-                            read.nextLine();
+                        ServiceClass.noSearchResults();
                     }
                     else
                     {
-                        ServiceClass.noSearchResults();                 
+                        for(Employee e : searchMatches)
+                        {
+                            System.out.print(e.toString());
+                        }
                     }
                 }
+                else
+                {
+                    System.out.println("\nThere are currently no saved employees");
+                }
+                System.out.println("\nPress enter to continue");
+                read.nextLine();                  
                 ServiceClass.getInitialMessage();       
             }
             else if("5".equals(input))
             {
-                //search for prudct
+                //search for product
                 String searchTerms;
                 ServiceClass.inputPrompt("name or item ID of the product you wish to search for:");
                 
                 searchTerms = read.nextLine();
                 
+                ArrayList<Product> searchMatches = new ArrayList();
+                
                 for(Product p : myProductList)
                 {
-                    if(ServiceClass.intCheck(searchTerms))
+                    // if search isn't an int and the String matched product name
+                    if(!ServiceClass.intCheck(searchTerms) && p.getName().equalsIgnoreCase(searchTerms))
                     {
-                        if(p.getItemId() == Integer.parseInt(searchTerms))
-                        {
-                            System.out.println(p.toString());
-                            System.out.println("Press enter to continue");
-                            read.nextLine();                  
-                        }
-                        else
-                        {
-                            ServiceClass.noSearchResults();                 
-                        }
+                        searchMatches.add(p);
                     }
-                    else if(p.getName().equalsIgnoreCase(searchTerms))
+                    // if the search is an int and the String parsed as int matches the itemId
+                    else if(ServiceClass.intCheck(searchTerms) && p.getItemId() == Integer.parseInt(searchTerms))
                     {
-                            System.out.println(p.toString());
-                            System.out.println("Press enter to continue");
-                            read.nextLine();
-                    }
-                    else
-                    {
-                        ServiceClass.noSearchResults();                 
+                        searchMatches.add(p);
                     }
                 }
+                
+                if(searchMatches.isEmpty())
+                {
+                    ServiceClass.noSearchResults();
+                }
+                else
+                {
+                    for(Product p : searchMatches)
+                    {
+                        System.out.print(p.toString());
+                        System.out.println("\nDo you wish to view manufacturer info? (y/n)");
+                        if("y".equalsIgnoreCase(read.nextLine()))
+                        {
+                            System.out.println(p.getManufacturer().toString());
+                        }
+                    }
+                }
+                System.out.println("\nPress enter to continue");
+                read.nextLine();                  
                 ServiceClass.getInitialMessage();
             }
             else if("6".equals(input))

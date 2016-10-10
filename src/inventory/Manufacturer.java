@@ -71,7 +71,7 @@ public class Manufacturer
     {
         return "\nManufacturer Name:\t" + getName() +
                 "\nManufacturer ID:\t" + getMfgId() +
-                "\nAddress\t" + getAddress() +
+                "\nAddress:\t" + getAddress() +
                 "\nPhone number:\t" + getPhoneNumber() +
                 "\nPoint of contact:\t" + getContact();
     }

@@ -95,7 +95,7 @@ public class ServiceClass
     public static void noSearchResults()
     {   
        Scanner read = new Scanner(System.in);
-        System.out.println("Your search did not return any results\nPress enter to continue");
-        read.nextLine(); 
+        System.out.println("Your search did not return any results\n");
+        //read.nextLine(); 
     }
 }
