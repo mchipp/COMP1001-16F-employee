@@ -3,7 +3,7 @@ package general;
 import java.util.*;
 
 /**
- * 
+ * This service class handles various frequently used methods in assignment 1.
  * @author Mark Chipp <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
 public class ServiceClass 

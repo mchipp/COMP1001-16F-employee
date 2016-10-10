@@ -1,7 +1,7 @@
 package hr;
 
 /**
- *
+ * This handles objects of the CommissionEmployee class
  * @author Mark Chipp <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
 public class CommissionEmployee extends Employee

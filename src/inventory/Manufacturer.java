@@ -1,7 +1,7 @@
 package inventory;
 
 /**
- *
+ * This class handles Manufacturer objects for assignment 1
  * @author Mark Chipp 200180985 <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
 public class Manufacturer 

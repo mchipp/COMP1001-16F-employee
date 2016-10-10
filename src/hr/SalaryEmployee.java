@@ -1,7 +1,7 @@
 package hr;
 
 /**
- *
+ * This handles objects of the SalaryEmployee class
  * @author Mark Chipp 200180985 <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
 public class SalaryEmployee extends Employee

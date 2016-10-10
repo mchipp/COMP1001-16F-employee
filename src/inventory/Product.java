@@ -3,7 +3,7 @@ package inventory;
 import general.*;
 
 /**
- *
+ * This class handles Product objects for assignment 1
  * @author Mark Chipp 200180985 <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
 public class Product

@@ -4,7 +4,7 @@ import inventory.*;
 import java.util.*;
 
 /**
- *
+ * This is the main (driver) class for my assignment 1 submission. 
  * @author Mark Chipp 200180985 <mark.chipp@mygeorgian.ca, mark.chipp@live.ca>
  */
 public class Main 
@@ -438,7 +438,7 @@ public class Main
                 String firstName, lastName, gender, address, phoneNumber, position,
                         status;
                 int year=0, month=0, day=0;
-                double commissionRate=0;
+                double commissionRate = 0.05; //default commission rate
                 boolean innerKeepGoing = true;
                 
                 do
@@ -602,27 +602,24 @@ public class Main
                     }
                 }while(innerKeepGoing);
                 
-                innerKeepGoing = true;
-                
-                /*                
-                //Employees can receive individual commission rates (useful for senority, experience, position)
-                do
-                {
-                    ServiceClass.inputPrompt("commission rate (example 0.1 = 10%)");
-                    String inputValue = read.nextLine();
-                    if(ServiceClass.doubleCheck(inputValue))
-                    {
-                        commissionRate = Double.parseDouble(inputValue);
-                        innerKeepGoing = false;
-                    }
-                    else
-                    {
-                        System.out.println("Please use only a number with two decimal places");
-                    }
-                }while(innerKeepGoing);*/             
-                
-                // comment this line out and uncomment above block for custom rates per employee
-                commissionRate = 0.05;
+                               
+//                Uncomment the below do/while look to enable the option for 
+//                Employees to receive individual commission rates based on user input
+//                (useful for senority, experience, position)
+//                do
+//                {
+//                    ServiceClass.inputPrompt("commission rate (example 0.1 = 10%)");
+//                    String inputValue = read.nextLine();
+//                    if(ServiceClass.doubleCheck(inputValue))
+//                    {
+//                        commissionRate = Double.parseDouble(inputValue);
+//                        innerKeepGoing = false;
+//                    }
+//                    else
+//                    {
+//                        System.out.println("Please use only a number with two decimal places");
+//                    }
+//                }while(innerKeepGoing);       
                 
                 CommissionEmployee employee = new CommissionEmployee(firstName, lastName, gender, address, phoneNumber, year,
                 month, day, position, status, commissionRate);
