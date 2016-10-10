@@ -139,22 +139,15 @@ public class Main
                     ServiceClass.inputPrompt("month of birth [01-12]");
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
-                    {
-                        if(inputValue.length() <= 2)
+                    {                       
+                        if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
                         {
-                            if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
-                            {
-                                month = Integer.parseInt(inputValue);
-                                innerKeepGoing = false;
-                            }
-                            else
-                            {
-                                System.out.println("Month must be a number from 1-12.");
-                            }
+                            month = Integer.parseInt(inputValue);
+                            innerKeepGoing = false;
                         }
                         else
                         {
-                            System.out.println("Month cannot exceed two digits.");
+                            System.out.println("Month must be a number from 1-12.");
                         }
                     }
                     else
@@ -532,22 +525,15 @@ public class Main
                     ServiceClass.inputPrompt("month of birth [01-12]");
                     String inputValue = read.nextLine();
                     if(ServiceClass.intCheck(inputValue))
-                    {
-                        if(inputValue.length() <= 2)
+                    { 
+                        if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
                         {
-                            if(Integer.parseInt(inputValue) <= 12 && Integer.parseInt(inputValue) >= 1)
-                            {
-                                month = Integer.parseInt(inputValue);
-                                innerKeepGoing = false;
-                            }
-                            else
-                            {
-                                System.out.println("Month must be a number from 1-12.");
-                            }
+                            month = Integer.parseInt(inputValue);
+                            innerKeepGoing = false;
                         }
                         else
                         {
-                            System.out.println("Month cannot exceed two digits.");
+                            System.out.println("Month must be a number from 1-12.");
                         }
                     }
                     else
