@@ -9,6 +9,7 @@ import java.util.*;
 public class ServiceClass 
 {
     private static int empId = 10000;
+    private static int prodId = 20000;
     
     // menu interface
     public static void getInitialMessage()
@@ -27,6 +28,12 @@ public class ServiceClass
     public static int setEmployeeId()
     {
         return ++empId;
+    }
+    
+    // sets incremental prodId
+    public static int setProductId()
+    {
+        return ++prodId;
     }
     
     // check that input isn't empty
@@ -89,7 +96,6 @@ public class ServiceClass
     {   
        Scanner read = new Scanner(System.in);
         System.out.println("Your search did not return any results\nPress enter to continue");
-        System.out.println("Press enter to continue");
         read.nextLine(); 
     }
 }

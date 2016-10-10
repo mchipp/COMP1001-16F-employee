@@ -1,5 +1,6 @@
 package general;
 import hr.*;
+import inventory.*;
 import java.util.*;
 
 /**
@@ -10,8 +11,23 @@ public class Main
 {
     public static void main(String[] args)
     {
-        //arraylist that will hold employee objects
+        // manufacturers
+        Manufacturer starDollars = new Manufacturer("Star Dollars", "123 Bean Blvd", "705-476-2039", "Richard Roast", 48293);
+        Manufacturer thirdMug = new Manufacturer("Third Mug", "415 Latte Lane", "705-235-2345", "Beverly Beverage", 6859);
+        Manufacturer cityStyle = new Manufacturer("City Style", "653 Cream Court", "705-654-2354", "Micahel Macchiato", 5345);
+        
+        // arraylist of products
+        ArrayList<Product> myProductList = new ArrayList();
+        Product boldCoffee = new Product("Bold Coffee", "Dark roast", 23, 20.00, starDollars);
+        Product decafCoffee = new Product("Decaf Coffee", "Decaf roast", 65, 32.00, thirdMug);
+        Product blondCoffee = new Product("Blond Coffee", "Medium roast", 52, 12.00, cityStyle);
+        myProductList.add(boldCoffee);
+        myProductList.add(decafCoffee);
+        myProductList.add(blondCoffee);
+        
+        // arraylist that will hold employee objects
         ArrayList<Employee> myEmployeeList = new ArrayList();
+        
         Scanner read = new Scanner(System.in);
         boolean keepGoing = true;
         String input = "6";
@@ -78,10 +94,17 @@ public class Main
                 
                 do
                 {
-                    ServiceClass.inputPrompt("phone number");
+                    ServiceClass.inputPrompt("phone number including area code");
                     if(!ServiceClass.stringCheck(phoneNumber = read.nextLine()))
                     {
-                        innerKeepGoing = false;
+                        if(ServiceClass.intCheck(phoneNumber) && phoneNumber.length() == 10)
+                        {
+                            innerKeepGoing = false;                            
+                        }
+                        else
+                        {
+                            System.out.println("Phone number must contain only numerals.");
+                        }
                     }
                 }while(innerKeepGoing);
                 
@@ -182,25 +205,10 @@ public class Main
                 {
                     ServiceClass.inputPrompt("status");
                     if(!ServiceClass.stringCheck(status = read.nextLine()))
-                    {      
-                //debugging
-                for(Employee e : myEmployeeList)
-                {
-                    System.out.println(e.toString());
-                }
+                    {
                         innerKeepGoing = false;
                     }
-                }while(innerKeepGoing);      
-                //debugging
-                for(Employee e : myEmployeeList)
-                {
-                    System.out.println(e.toString());
-                }      
-                //debugging
-                for(Employee e : myEmployeeList)
-                {
-                    System.out.println(e.toString());
-                }
+                }while(innerKeepGoing);
                 
                 innerKeepGoing = true;
                 
@@ -287,10 +295,17 @@ public class Main
                 
                 do
                 {
-                    ServiceClass.inputPrompt("phone number");
+                    ServiceClass.inputPrompt("phone number including area code");
                     if(!ServiceClass.stringCheck(phoneNumber = read.nextLine()))
                     {
-                        innerKeepGoing = false;
+                        if(ServiceClass.intCheck(phoneNumber) && phoneNumber.length() == 10)
+                        {
+                            innerKeepGoing = false;                            
+                        }
+                        else
+                        {
+                            System.out.println("Phone number must contain only numerals.");
+                        }
                     }
                 }while(innerKeepGoing);
                 
@@ -472,10 +487,17 @@ public class Main
                 
                 do
                 {
-                    ServiceClass.inputPrompt("phone number");
+                    ServiceClass.inputPrompt("phone number including area code");
                     if(!ServiceClass.stringCheck(phoneNumber = read.nextLine()))
                     {
-                        innerKeepGoing = false;
+                        if(ServiceClass.intCheck(phoneNumber) && phoneNumber.length() == 10)
+                        {
+                            innerKeepGoing = false;                            
+                        }
+                        else
+                        {
+                            System.out.println("Phone number must contain only numerals.");
+                        }
                     }
                 }while(innerKeepGoing);
                 
@@ -650,7 +672,39 @@ public class Main
             }
             else if("5".equals(input))
             {
-                //search for product
+                //search for prudct
+                String searchTerms;
+                ServiceClass.inputPrompt("name or item ID of the product you wish to search for:");
+                
+                searchTerms = read.nextLine();
+                
+                for(Product p : myProductList)
+                {
+                    if(ServiceClass.intCheck(searchTerms))
+                    {
+                        if(p.getItemId() == Integer.parseInt(searchTerms))
+                        {
+                            System.out.println(p.toString());
+                            System.out.println("Press enter to continue");
+                            read.nextLine();                  
+                        }
+                        else
+                        {
+                            ServiceClass.noSearchResults();                 
+                        }
+                    }
+                    else if(p.getName().equalsIgnoreCase(searchTerms))
+                    {
+                            System.out.println(p.toString());
+                            System.out.println("Press enter to continue");
+                            read.nextLine();
+                    }
+                    else
+                    {
+                        ServiceClass.noSearchResults();                 
+                    }
+                }
+                ServiceClass.getInitialMessage();
             }
             else if("6".equals(input))
             {
